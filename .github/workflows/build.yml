@@ -1,0 +1,28 @@
+name: build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: buildpacks/github-actions/setup-pack@v4.1.0
+
+    - name: Build
+      run: pack build "ghcr.io/mycelium-com/eip1559_gas_estimator" --builder=gcr.io/buildpacks/builder:v1
+    
+    - name: Login
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Push
+      run: docker push ghcr.io/mycelium-com/eip1559_gas_estimator
+    
