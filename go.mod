@@ -3,7 +3,7 @@ module github.com/AlhimicMan/eip1559_gas_estimator
 go 1.17
 
 require (
-	github.com/ethereum/go-ethereum v1.10.16
+	github.com/ethereum/go-ethereum v1.13.15
 	github.com/spf13/viper v1.10.1
 	github.com/stretchr/testify v1.7.0
 	github.com/ybbus/jsonrpc/v2 v2.1.6
