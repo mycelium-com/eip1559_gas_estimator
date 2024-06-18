@@ -1,9 +1,9 @@
 node: <ETH NODE ADDRESS>
 levels:
   safe_low: 5
-  average: 10
-  fast: 55
-  fastest: 85
+  average: 20
+  fast: 50
+  fastest: 70
 analyze_blocks: 10
 sleep_seconds: 2
 server:
